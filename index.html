@@ -1,23 +1,7 @@
 <html>
     <head>
         <title>Baabnq</title>
-        <style>
-        .page {
-            width: 500px;
-            margin: auto;
-            font-family: Helvetica,Arial,sans-serif;
-        }
-        h1 { 
-            white-space: nowrap; 
-            text-align: center;
-        }
-        .embed {
-            font-family: Consolas;
-            border: 1px solid #cccccc;
-            border-radius: 5px;
-            padding: 5px;
-        }
-        </style>
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
     <div class="page">
@@ -27,7 +11,7 @@
         <h2>Grammar</h2>
         <pre class="embed">
 program ::= unit*
-unit ::= ( statement, eos | comment ) ["\n"]
+unit ::= ( statement eos | comment ) ["\n"]
 
 eos ::= ";"
 
@@ -51,25 +35,25 @@ statement ::=
     asm
     
 
-put ::=
+<a href="statements/put.html">put</a> ::= "put" (
     var  "="  expr |
     var  "<-" expr |
-    expr "->" expr
+    expr "->" expr )
 
-input   ::= "input"   var
-print   ::= "print"   expr
-putchr  ::= "putchr"  expr
-lab     ::= "lab"     label
-jump    ::= "jump"    label [cond]
-sub     ::= "sub"     label [cond]
-return  ::= "return"
-pull    ::= "pull"    var
-push    ::= "push"    expr
-new     ::= "new"     (expr | string) var
-static  ::= "static"  (expr | string) var
-free    ::= "free"    var
-use     ::= "use"     string
-asm     ::= "asm"     string
+<a href="statements/input.html"     >input</a>  ::= "input"   var
+<a href="statements/print.html"     >print</a>  ::= "print"   expr
+<a href="statements/putchr.html"    >putchr</a> ::= "putchr"  expr
+<a href="statements/lab.html"       >lab</a>    ::= "lab"     label
+<a href="statements/jump.html"      >jump</a>   ::= "jump"    label [cond]
+<a href="statements/sub.html"       >sub </a>   ::= "sub"     label [cond]
+<a href="statements/return.html"    >return</a> ::= "return"
+<a href="statements/pull.html"      >pull</a>   ::= "pull"    var
+<a href="statements/push.html"      >push</a>   ::= "push"    expr
+<a href="statements/new.html"       >new</a>    ::= "new"     (expr | string) var
+<a href="statements/static.html"    >static</a> ::= "static"  (expr | string) var
+<a href="statements/free.html"      >free</a>   ::= "free"    var
+<a href="statements/use.html"       >use</a>    ::= "use"     string
+<a href="statements/asm.html"       >asm</a>    ::= "asm"     string
 
 
 expr ::=

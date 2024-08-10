@@ -1,0 +1,26 @@
+.page {
+    width: 600px;
+    margin: auto;
+    font-family: Helvetica,Arial,sans-serif;
+}
+h1 { 
+    white-space: nowrap; 
+    text-align: center;
+}
+.embed {
+    font-family: Consolas;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+p, pre {
+    font-family: Consolas;    
+}
+
+a:link, a:visited {
+    color: black;
+}
+a:hover {
+  color: blue;
+}
