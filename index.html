@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <title>Baabnq</title>
+        <style>
+        .page {
+            width: 500px;
+            margin: auto;
+            font-family: Helvetica,Arial,sans-serif;
+        }
+        h1 { 
+            white-space: nowrap; 
+            text-align: center;
+        }
+        .embed {
+            font-family: Consolas;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        </style>
+    </head>
+    <body>
+    <div class="page">
+        <h1>The Baabnq Programming Language</h1>
+        
+        
+        <h2>Grammar</h2>
+        <pre class="embed">
+program ::= unit*
+unit ::= ( statement, eos | comment ) ["\n"]
+
+eos ::= ";"
+
+comment ::= /".+?/
+
+statement ::= 
+    put     |
+    input   |
+    print   |
+    putchr  |
+    lab     |
+    jump    |
+    sub     |
+    return  |
+    pull    |
+    push    |
+    new     |
+    free    |
+    static  |
+    use     |
+    asm
+    
+
+put ::=
+    var  "="  expr |
+    var  "<-" expr |
+    expr "->" expr
+
+input   ::= "input"   var
+print   ::= "print"   expr
+putchr  ::= "putchr"  expr
+lab     ::= "lab"     label
+jump    ::= "jump"    label [cond]
+sub     ::= "sub"     label [cond]
+return  ::= "return"
+pull    ::= "pull"    var
+push    ::= "push"    expr
+new     ::= "new"     (expr | string) var
+static  ::= "static"  (expr | string) var
+free    ::= "free"    var
+use     ::= "use"     string
+asm     ::= "asm"     string
+
+
+expr ::=
+  number    |
+  var       |
+  binary    |
+  paran
+
+binary ::= expr op expr
+paran  ::= "(" expr ")"
+
+op ::= 
+    "+"  | 
+    "-"  | 
+    "|"  | 
+    "&"  |
+    "^"  | 
+    "<<" |
+    ">>"
+
+cond ::= "~" expr ('==' | '!=' | '>' | '<') expr
+
+
+label   ::= iden
+string  ::= /'[^']*'/
+var     ::= "_" | iden
+iden    ::= /[^'|;|\s|(|)]+/
+number  ::= /\d+/
+        </pre>
+
+
+    </div>
+    </body>
+</html>
