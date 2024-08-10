@@ -8,11 +8,11 @@
         <h1>sub</h1>
 
         <h3 class="embed">"sub" labelA</h3>
-        <p>Saves the next execution address and writes the address at which labelA is defined to the execution register. Effectively, this calls a routine.</p>
+        <p>Push the next execution address onto the stack and writes the address at which labelA is defined to the execution register. Effectively, this calls a routine.</p>
 
         <h3 class="embed">"sub" labelA [cond]</h3>
         <p>
-        Evaluates condition cond, then saves the next execution address and writes the address at which labelA is defined to the execution register if cond was evaluated truthfully. 
+        Evaluates condition cond, then push the next execution address onto the stack and writes the address at which labelA is defined to the execution register if cond was evaluated truthfully. 
         Effectively, this calls a routine if the condition is true.</p>
 
         
