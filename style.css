@@ -17,10 +17,12 @@ h1 {
 p, pre {
     font-family: Consolas;    
 }
-
+a {
+    text-decoration: none;
+}
 a:link, a:visited {
     color: black;
 }
 a:hover {
-  color: blue;
+  color: magenta;
 }

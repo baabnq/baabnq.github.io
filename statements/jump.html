@@ -8,10 +8,12 @@
         <h1>jump</h1>
 
         <h3 class="embed">"jump" labelA</h3>
-        <p>Moves execution to the location at which label of name labelA is defined.</p>
+        <p>Write the address at which labelA is defined to the execution register. Effectively, this continues execution at the label.</p>
 
         <h3 class="embed">"jump" labelA [cond]</h3>
-        <p>Evaluates condition cond, then moves execution to the location at which label of name labelA is defined if cond was evaluated truthfully.</p>
+        <p>
+        Evaluates condition cond, then write the address at which labelA is defined to the execution register if cond was evaluated truthfully. 
+        Effectively, this continues execution at the label if the condition is true.</p>
 
         
         <br>
