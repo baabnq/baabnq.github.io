@@ -79,7 +79,7 @@ cond ::= "~" expr ('==' | '!=' | '>' | '<') expr
 
 label   ::= iden
 string  ::= /'[^']*'/
-var     ::= "_" | iden
+var     ::= "_" iden
 iden    ::= /[^'|;|\s|(|)]+/
 number  ::= /\d+/
         </pre>
