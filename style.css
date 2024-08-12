@@ -20,6 +20,10 @@ p, pre {
 }
 a {
     text-decoration: none;
+
+
+text-shadow: rgba(0,0,255,1) 0px 0px 10px;
+
 }
 a:link, a:visited {
     color: black;
