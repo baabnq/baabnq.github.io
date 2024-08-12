@@ -1,11 +1,12 @@
 .page {
     width: 600px;
     margin: auto;
-    font-family: Helvetica,Arial,sans-serif;
+    font-family: Helvetica;
 }
 h1 { 
     white-space: nowrap; 
     text-align: center;
+    font-family: Helvetica;
 }
 .embed {
     font-family: Consolas;
@@ -25,4 +26,10 @@ a:link, a:visited {
 }
 a:hover {
   color: magenta;
+}
+
+img {
+    width: 400px;
+    height: auto;
+    
 }
