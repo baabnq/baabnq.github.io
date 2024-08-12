@@ -1,3 +1,7 @@
+html {
+    background: #aaaaff;
+}
+
 .page {
     width: 600px;
     margin: auto;
@@ -10,7 +14,7 @@ h1 {
 }
 .embed {
     font-family: Consolas;
-    border: 1px solid #cccccc;
+    border: 1px solid #555555;
     border-radius: 5px;
     padding: 5px;
 }
