@@ -53,7 +53,7 @@
         <h2>Grammar</h2>
         <pre class="embed">
 program ::= unit*
-unit ::= ( statement eos | comment ) ["\n"]
+unit ::= ( statement eos | comment ) ("\n"*)
 
 eos ::= ";"
 
