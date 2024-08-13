@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Virtual Machine</title>
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+    <div class="page">
+        <h1>Virtual Machine</h1>
+
+        <p>
+            The Virtual Machine that Baabnq runs on is a fully 16-bit <a href="https://en.wikipedia.org/wiki/Harvard_architecture">Harvard architecture</a> virtual processor.
+            It can address a 16-bit general purpose memory and 16-bit stack, both with a size of 65k.
+            It has one accumulator register, the "acc", and one general purpose register, the "reg".
+            Special purpose registers include the execution register, which tracks the instruction being executed, and the stack pointer, which tracks the top of the stack.
+            Both of them are not directly accessible.
+            Additionally, the VM manages the heap in the upper half of general purpose memory.
+        </p>
+        
+        <h2>Memory Layout</h2>
+        <img class="embed" src="diagrams/memory.svg" />        
+        
+        <br>
+        
+        <a href="/index.html"><< Back</a>
+
+    </div>
+    </body>
+</html>
