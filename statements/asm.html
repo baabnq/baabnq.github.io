@@ -8,10 +8,21 @@
         <h1>asm</h1>
 
         <h3 class="embed">"asm" string</h3>
-        <p>Injects content of string as inline assembler at address of statement.</p>
-        
+        <p>Emits content of string as preprocessed assembler.</p>
+
         <br>
+        <h2 style="text-align:center;">Preprocessor</h2>
         
+        <h3 class="embed">inst (var);</h3>
+        <p>Substitutes brackets for static memory address of var.</p>
+
+        <h3 class="embed">inst -name;</h3>
+        <p>
+            In scope of asm statement, assigns address from <a href="../pages/temp pool.html">temp pool</a> to name and substitutes -name for that address. 
+            Effectively, this makes name a temporary variable in the scope of the asm statement.
+        </p>
+        
+        <br>        
         <a href="../index.html"><< Back</a>
 
     </div>
