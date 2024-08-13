@@ -95,7 +95,60 @@ statement ::=
 <a href="statements/static.html"    >static</a> ::= "static"  (expr | string) var
 <a href="statements/free.html"      >free</a>   ::= "free"    var
 <a href="statements/use.html"       >use</a>    ::= "use"     string
-<a href="statements/asm.html"       >asm</a>    ::= "asm"     string
+<a href="statements/asm.html"       >asm</a>    ::= "asm"     "'" (inst ";")* "'"
+
+
+inst ::=
+    <a href="insts/set.html">"set"</a> addr  |
+
+    <a href="insts/add.html">"add"</a>       |
+    <a href="insts/sub.html">"sub"</a>       |
+    <a href="insts/shg.html">"shg"</a>       |
+    <a href="insts/shs.html">"shs"</a>       |
+
+    <a href="insts/lor.html">"lor"</a>       |
+    <a href="insts/and.html">"and"</a>       |
+    <a href="insts/xor.html">"xor"</a>       |
+    <a href="insts/not.html">"not"</a>       |
+
+    <a href="insts/lDA.html">"lDA"</a> addr  |
+    <a href="insts/lDR.html">"lDR"</a> addr  |
+    <a href="insts/sAD.html">"sAD"</a> addr  |
+    <a href="insts/sRD.html">"sRD"</a> addr  |
+
+    <a href="insts/lPA.html">"lPA"</a> addr  |
+    <a href="insts/lPR.html">"lPR"</a> addr  |
+    <a href="insts/sAP.html">"sAP"</a> addr  |
+    <a href="insts/sRP.html">"sRP"</a> addr  |
+
+    <a href="insts/out.html">"out"</a> addr  |
+    <a href="insts/inp.html">"inp"</a> addr  |
+
+    <a href="insts/lab.html">"lab"</a> label |
+    <a href="insts/got.html">"got"</a> label |
+    <a href="insts/jm0.html">"jm0"</a> label |
+    <a href="insts/jmA.html">"jmA"</a> label |
+    <a href="insts/jmG.html">"jmG"</a> label |
+    <a href="insts/jmL.html">"jmL"</a> label |
+
+    <a href="insts/jmS.html">"jmS"</a> label |
+    <a href="insts/ret.html">"ret"</a>       |
+
+    <a href="insts/pha.html">"pha"</a>       |
+    <a href="insts/pla.html">"pla"</a>       |
+
+    <a href="insts/brk.html">"brk"</a>       |
+    <a href="insts/clr.html">"clr"</a>       |
+
+    <a href="insts/putstr.html">"putstr"</a>    |
+
+
+    
+addr ::= " " ( 
+    number | "(" var ")" | "-" iden
+)
+
+
 
 
 expr ::=
