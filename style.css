@@ -41,3 +41,15 @@ img {
     height: auto;
     
 }
+
+
+
+
+.subheading {
+    text-align: center;
+    font-family: Helvetica;
+    margin-top: none;
+    color: #444;
+}
+
+
