@@ -1,0 +1,241 @@
+<html>
+    <head>
+        <title>Baabnq</title>
+        <link rel="stylesheet" href="/style.css">
+    </head>
+    <body>
+    
+    <h1>Documentation of the Baabnq Programming Language</h1>
+    <div class="page">
+        
+        <h2>Link Index</h2>
+        
+        <h4>Pages</h4>
+        <pre>
+        <a href="/pages/number.html">Number</a>
+        <a href="/pages/var.html">Variable</a>
+        <a href="/pages/temp pool.html">Temp Pool</a>
+        <a href="/pages/vm.html">Virtual Machine</a>
+        <a href="/pages/chunk.html">Chunks</a>
+        <a href="/pages/comment.html">Comments</a>
+        <a href="/pages/call conventions.html">Call Conventions</a>
+        <a href="/pages/expr.html">Expressions</a>
+        <a href="/pages/prog.html">Programs</a>
+        </pre>
+        
+        <h4>Diagrams</h4>
+        <pre>
+        <a href="/diagrams/memory.svg">Memory Layout</a>
+        <a href="/diagrams/stack.svg" >Stack Routine Call Layout</a>     
+        <a href="/diagrams/chunk.svg" >Chunk Layout</a>     
+        </pre>
+        
+        <h4>Commands</h4>
+        <pre>
+        <a href="/statements/put.html"       >put</a>
+        <a href="/statements/input.html"     >input</a>
+        <a href="/statements/print.html"     >print</a>
+        <a href="/statements/putchr.html"    >putchr</a>
+        <a href="/statements/lab.html"       >lab</a>
+        <a href="/statements/jump.html"      >jump</a>
+        <a href="/statements/sub.html"       >sub </a>
+        <a href="/statements/return.html"    >return</a>
+        <a href="/statements/pull.html"      >pull</a>
+        <a href="/statements/push.html"      >push</a>
+        <a href="/statements/new.html"       >new</a>
+        <a href="/statements/static.html"    >static</a>
+        <a href="/statements/free.html"      >free</a>
+        <a href="/statements/use.html"       >use</a>
+        <a href="/statements/asm.html"       >asm</a>
+        </pre>
+
+
+        
+        <h4>Instructions</h4>
+        <pre>
+        <a href="/insts/arith/set.html">"set"</a>
+
+        <a href="/insts/arith/add.html">"add"</a>
+        <a href="/insts/arith/sub.html">"sub"</a>
+        <a href="/insts/arith/shg.html">"shg"</a>
+        <a href="/insts/arith/shs.html">"shs"</a>
+
+        <a href="/insts/arith/lor.html">"lor"</a>
+        <a href="/insts/arith/and.html">"and"</a>
+        <a href="/insts/arith/xor.html">"xor"</a>
+        <a href="/insts/arith/not.html">"not"</a>
+
+        <a href="/insts/memry/lDA.html">"lDA"</a>
+        <a href="/insts/memry/lDR.html">"lDR"</a>
+        <a href="/insts/memry/sAD.html">"sAD"</a>
+        <a href="/insts/memry/sRD.html">"sRD"</a>
+
+        <a href="/insts/memry/lPA.html">"lPA"</a>
+        <a href="/insts/memry/lPR.html">"lPR"</a>
+        <a href="/insts/memry/sAP.html">"sAP"</a>
+        <a href="/insts/memry/sRP.html">"sRP"</a>
+
+        <a href="/insts/io/out.html">"out"</a>
+        <a href="/insts/io/inp.html">"inp"</a>
+
+        <a href="/insts/flctl/lab.html">"lab"</a>
+        <a href="/insts/flctl/got.html">"got"</a>
+        <a href="/insts/flctl/jm0.html">"jm0"</a>
+        <a href="/insts/flctl/jmA.html">"jmA"</a>
+        <a href="/insts/flctl/jmG.html">"jmG"</a>
+        <a href="/insts/flctl/jmL.html">"jmL"</a>
+
+        <a href="/insts/stack/jmS.html">"jmS"</a>
+        <a href="/insts/stack/ret.html">"ret"</a>
+
+        <a href="/insts/stack/pha.html">"pha"</a>
+        <a href="/insts/stack/pla.html">"pla"</a>
+
+        <a href="/insts/ext/brk.html">"brk"</a>
+        <a href="/insts/ext/clr.html">"clr"</a>
+
+        <a href="/insts/io/putstr.html">"putstr"</a>
+        </pre>
+
+
+                        
+        <a href="https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form"><h2>Grammar</h2></a>
+        <pre class="embed">
+<a href="/pages/prog.html">program</a> ::= unit*
+unit ::= ( statement eos | comment ) ("\n"*)
+
+eos ::= ";"
+
+<a href="/pages/comment.html">comment</a> ::= /".+?/
+
+statement ::= 
+    put     |
+    input   |
+    print   |
+    putchr  |
+    lab     |
+    jump    |
+    sub     |
+    return  |
+    pull    |
+    push    |
+    new     |
+    free    |
+    static  |
+    use     |
+    asm
+    
+
+<a href="/statements/put.html">put</a> ::= "put" (
+    var  "="  expr |
+    var  "<-" expr |
+    expr "->" expr )
+
+<a href="/statements/input.html"     >input</a>  ::= "input"   var
+<a href="/statements/print.html"     >print</a>  ::= "print"   expr
+<a href="/statements/putchr.html"    >putchr</a> ::= "putchr"  expr
+<a href="/statements/lab.html"       >lab</a>    ::= "lab"     label
+<a href="/statements/jump.html"      >jump</a>   ::= "jump"    label [cond]
+<a href="/statements/sub.html"       >sub </a>   ::= "sub"     label [cond]
+<a href="/statements/return.html"    >return</a> ::= "return"
+<a href="/statements/pull.html"      >pull</a>   ::= "pull"    var
+<a href="/statements/push.html"      >push</a>   ::= "push"    expr
+<a href="/statements/new.html"       >new</a>    ::= "new"     (expr | string) var
+<a href="/statements/static.html"    >static</a> ::= "static"  (expr | string) var
+<a href="/statements/free.html"      >free</a>   ::= "free"    var
+<a href="/statements/use.html"       >use</a>    ::= "use"     string
+<a href="/statements/asm.html"       >asm</a>    ::= "asm"     "'" (inst ";")* "'"
+
+
+inst ::=
+    <a href="/insts/arith/set.html">"set"</a> number |
+
+    <a href="/insts/arith/add.html">"add"</a>        |
+    <a href="/insts/arith/sub.html">"sub"</a>        |
+    <a href="/insts/arith/shg.html">"shg"</a>        |
+    <a href="/insts/arith/shs.html">"shs"</a>        |
+
+    <a href="/insts/arith/lor.html">"lor"</a>        |
+    <a href="/insts/arith/and.html">"and"</a>        |
+    <a href="/insts/arith/xor.html">"xor"</a>        |
+    <a href="/insts/arith/not.html">"not"</a>        |
+
+    <a href="/insts/memry/lDA.html">"lDA"</a> addr   |
+    <a href="/insts/memry/lDR.html">"lDR"</a> addr   |
+    <a href="/insts/memry/sAD.html">"sAD"</a> addr   |
+    <a href="/insts/memry/sRD.html">"sRD"</a> addr   |
+
+    <a href="/insts/memry/lPA.html">"lPA"</a> addr   |
+    <a href="/insts/memry/lPR.html">"lPR"</a> addr   |
+    <a href="/insts/memry/sAP.html">"sAP"</a> addr   |
+    <a href="/insts/memry/sRP.html">"sRP"</a> addr   |
+
+    <a href="/insts/io/out.html">"out"</a> addr   |
+    <a href="/insts/io/inp.html">"inp"</a> addr   |
+
+    <a href="/insts/flctl/lab.html">"lab"</a> label  |
+    <a href="/insts/flctl/got.html">"got"</a> label  |
+    <a href="/insts/flctl/jm0.html">"jm0"</a> label  |
+    <a href="/insts/flctl/jmA.html">"jmA"</a> label  |
+    <a href="/insts/flctl/jmG.html">"jmG"</a> label  |
+    <a href="/insts/flctl/jmL.html">"jmL"</a> label  |
+
+    <a href="/insts/stack/jmS.html">"jmS"</a> label  |
+    <a href="/insts/stack/ret.html">"ret"</a>        |
+
+    <a href="/insts/stack/pha.html">"pha"</a>        |
+    <a href="/insts/stack/pla.html">"pla"</a>        |
+
+    <a href="/insts/ext/brk.html">"brk"</a>        |
+    <a href="/insts/ext/clr.html">"clr"</a>        |
+
+    <a href="/insts/io/putstr.html">"putstr"</a>     |
+
+
+    
+addr ::= " " ( 
+    number | "(" var ")" | "-" iden
+)
+
+
+
+
+<a href="/pages/expr.html">expr</a> ::=
+  number    |
+  var       |
+  binary    |
+  paran
+
+binary ::= expr op expr
+paran  ::= "(" expr ")"
+
+op ::= 
+    "+"  | 
+    "-"  | 
+    "|"  | 
+    "&"  |
+    "^"  | 
+    "<<" |
+    ">>"
+
+cond ::= "~" expr ('==' | '!=' | '>' | '<') expr
+
+
+label   ::= iden
+string  ::= /'[^']*'/
+<a href="/pages/var.html">var</a>     ::= "_" iden
+iden    ::= /[^'|;|\s|(|)]+/
+<a href="/pages/number.html">number</a>  ::= /\d+/
+        </pre>
+
+
+    <br>
+    <h3><a href="https://en.wikipedia.org/wiki/Legality">Legal</a></h3>
+    <p>
+        All content of this page is to be accredited solely to its creator, me, S1monr3dst0ne07 ;3
+        <br>(That means i made all the stuff on here myself)</p>
+
+
+    </div>
+    </body>
+</html>
